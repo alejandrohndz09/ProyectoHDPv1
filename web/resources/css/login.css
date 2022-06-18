@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-09-2022, 11:50:47 PM
+    Author     : Flavio Molina
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+html{
+    font-family: 'Raleway', sans-serif;  height: 100%;
+}
+
+body{
+    margin: 0px ;
+    background: url(../imagenes/fondoprincipal.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.c1{
+    background: rgb(16,16,17);
+    background: linear-gradient(0deg, rgba(16,16,17,0.7035189075630253) 100%, rgba(16,16,17,1) 100%, rgba(16,16,17,1) 100%);
+    height: 100vh;
+}
+
+.c2{
+    background: rgb(255,255,255);
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.t1, h1 p{
+    color: #fff;
+    margin-left: 100px;  
+
+}
+
+h1{
+    margin-top: 175px;
+    font-weight: bold;
+    font-size: 75px;
+}
+
+.tp1{
+    font-size: 40px;    
+}
+
+
+.top{
+    width: 100%;
+    padding-top: 125px; 
+}
+
+.t2{
+    color: #036fab;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.tp2{
+    font-size: 30px;
+}
+
+
+
+input{
+    font-family: 'Montserrat', sans-serif !Important;
+    width: 150%;
+}
+
+.content{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.md1{
+    background-image: url(../imagenes/bannermodal.jpg);
+    background-position: 50%;
+    background-size: cover;
+    height: 100%;
+    transition: opacity .8s ease-in;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0 !important;
+    style="overflow-y: auto !important; 
+}

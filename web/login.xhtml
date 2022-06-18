@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/login.css"/>
+        <h:outputStylesheet name="css/primeflex.css"/>
+    </h:head>
+    <h:body>
+        <div class="p-grid p-m-0">
+            <div class="p-col-8 c1">
+                <div>
+                    <h1 class="t1">MySteps.net</h1>
+                    <p class="t1 tp1">Bienvenido<br></br><br></br>
+                        Accede a nuestros <br></br>cursos y desarróllate en<br></br> el área que prefieras.</p>
+                </div>
+            </div>
+            <div class="p-col-4 c2">
+                <div style="">
+                    <h2 class="t2" style="text-align: center;">Iniciar Sesion</h2>
+                    <p class="tp2" style="text-align: center;">¡Podrás ingresar a cientos de cursos y divertirte mientras estés aprendiendo!</p>
+                    <div class="p-d-flex p-jc-center">
+                        <div class="p-col-7">
+                            <h:form>    
+                                <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                                <div class="card">
+                                    <div class="ui-fluid">
+                                        <div class="p-field">
+                                            <label for="Usuario">Usuario</label>
+                                            <p:inputText  id="Usuario" value="#{userLoginView.username}" required="true" type="text" />
+                                        </div>
+                                        <div class="p-field p-mb-6">
+                                            <label for="Contraseña">Contraseña</label>
+                                            <p:password id="Contraseña" value="#{userLoginView.password}" required="true" />
+                                        </div>
+                                        <div class="p-field p-mb-6">
+                                            <p:commandButton value="Iniciar sesión" update="growl" action="#{userLoginView.login}"
+                                                             oncomplete="handleLoginRequest(xhr, status, args)" />
+                                        </div>
+                                        <p class="p-text-center p-m-0 ">¿No tienes cuenta?</p>
+                                        <p:commandButton onclick="PF('agregar').show()" class="ui-button-flat p-p-0" value="Regístrate acá"/>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p:dialog widgetVar="agregar" height="750" width="1080" showEffect="fade" modal="true">
+                <div class="p-d-flex" style="height: 100%;">
+                    <div class="p-col-4  md1"></div>
+                    <div class="p-col-8 p-px-6 p-jc-center">
+                        <h:form>    
+                            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                            <div class="card">
+                                <h2 class="p-m-0 t2">Regístrate</h2>
+                                <p class="p-mt-3 tp2">¡Únete y comienza a potenciar tu carrera!</p>
+                                <div class="ui-fluid p-formgrid p-grid  p-mb-4">
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <h:outputLabel for="Nombres" value="Nombres" />
+                                        <p:inputText id="Nombres" value="#{userLoginView.nombres}" required="true" type="text" />
+                                    </div>
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <h:outputLabel for="apellidos" value="Apellidos" />
+                                        <p:inputText id="apellidos" value="#{userLoginView.apellidos}" required="true" label="apellidos" />
+                                    </div>  
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                                        <p:datePicker id="FechaNacimiento" value="#{userLoginView.fechaNacimiento}"
+                                                      mask="9999/99/99" pattern="yyyy-MM-dd"/>
+                                    </div>
+                                </div>
+                                <div class="ui-fluid p-formgrid p-grid p-mb-4">
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <label for="email">Email</label>
+                                        <p:inputText id="emai1" value="#{userLoginView.email}"  required="true" type="email">
+                                        </p:inputText>
+                                    </div>
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <label for="telefono">Teléfono</label>
+                                        <p:inputMask mask="9999-9999" id="telefono" value="#{userLoginView.telefono}" required="true" label="telefono" />
+                                    </div>
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <h:outputLabel for="direccion" value="Dirección" />
+                                        <p:inputText id="direccion" value="#{userLoginView.direccion}" required="true" label="direccion" />
+                                    </div>      
+                                </div>
+                                <div class="ui-fluid p-formgrid p-grid p-mb-6">
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <h:outputLabel for="Usuario" value="Usuario" />
+                                        <p:inputText id="Usuario" value="#{userLoginView.usuario}" required="true" label="Usuario" />
+                                    </div>  
+                                    <div class="p-field p-col-12 p-md-6">
+                                        <label for="Contraseña">Contraseña</label>
+                                        <p:password id="Contraseña" value="#{userLoginView.password}" required="true" />
+                                    </div>
+                                </div>
+                                <div class="p-mt-4 ">
+                                    <p:commandButton styleClass="p-d-block p-md-6 p-mx-auto" value="Registrame" update="growl" action="#{userLoginView.login}"
+                                                     onclick="PF('agregar').hide()"/>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </p:dialog>
+        </div>
+    </h:body>
+</html>
+
